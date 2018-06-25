@@ -29,6 +29,9 @@ public class GeneratingActivity extends AppCompatActivity {
      * main screen (AMazeActivity).
      */
     public void onBackPressed(){
-        Log.v(TAG, "Starting the generating activity through explore");
+        Log.v(TAG, "Back button pressed, returning to AMazeActivity");
+        Intent intent = new Intent(this, AMazeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
