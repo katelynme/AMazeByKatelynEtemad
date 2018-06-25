@@ -1,7 +1,9 @@
-package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad;
+package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.R;
 
 public class AMazeActivity extends AppCompatActivity {
 
