@@ -73,7 +73,7 @@ public class MazePanel extends View {
      * @param color
      */
     public void setColor(int color) {
-        // TODO: set the current color
+        paint.setColor(color);
     }
 
     /**
