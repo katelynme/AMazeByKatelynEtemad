@@ -1,6 +1,6 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-//import java.awt.Graphics;
+import java.awt.Graphics;
 
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.CardinalDirection;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;

@@ -3,9 +3,8 @@
  */
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-import gui.Constants.UserInput;
-import generation.MazeConfiguration;
-import generation.Order.Builder;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Order;
 
 /**
  * The state interface is used for the controller 
@@ -60,13 +59,13 @@ public interface State {
      * @param value carries a value, typically the skill level, optional
      * @return
      */
-    boolean keyDown(UserInput key, int value);
+    boolean keyDown(Constants.UserInput key, int value);
     /**
      * Sets the builder algorithm that should be used
      * to generate a maze
      * @param dfs specifies the algorithm, e.g. depth-first-search
      */
-    void setBuilder(Builder dfs);
+    void setBuilder(Order.Builder dfs);
     /**
      * Specifies if the maze that should be generated
      * must be perfect, i.e., it does not have cycles, 
