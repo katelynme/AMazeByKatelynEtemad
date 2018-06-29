@@ -12,7 +12,6 @@ import android.graphics.Point;
 
 import java.util.ArrayList;
 
-import gui.Constants.StateGUI;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPBranch;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPLeaf;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPNode;
@@ -118,7 +117,7 @@ public class FirstPersonDrawer {
 		// if notified by model that state has changed
 		// Query model for parameters
 		//dbg("viewer.redraw called");
-		if (state != StateGUI.STATE_PLAY)
+		if (state != Constants.StateGUI.STATE_PLAY)
 			return ;
 		
 		this.gc = (Graphics2D) gc ;

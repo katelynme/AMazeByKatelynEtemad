@@ -3,7 +3,11 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -40,7 +44,8 @@ public class MazePanel extends View {
      */
     @Override
     public void onDraw(Canvas c) {
-        // TODO: draw bitmap
+        super.onDraw(c);
+        c.drawBitmap(bitmap, null, new Rect(0,0,c.getWidth(),c.getHeight()), paint);
     }
 
     /**
@@ -50,14 +55,15 @@ public class MazePanel extends View {
      */
     @Override
     public void onMeasure(int width, int height) {
-        // as described for superclass method
+        super.onMeasure(width, height);
+        setMeasuredDimension(Constants.VIEW_WIDTH, Constants.VIEW_HEIGHT);
     }
 
     /**
      * Updates maze graphics.
      */
     public void update() {
-        //TODO: update maze graphics
+        invalidate();
     }
 
     /**
@@ -65,7 +71,7 @@ public class MazePanel extends View {
      * @param c string
      */
     public void setColor(String c) {
-        // TODO: same as setColor(int) but for string parameters
+        invalidate();
     }
 
     /**
@@ -83,8 +89,7 @@ public class MazePanel extends View {
      * @param blue
      */
     public static int getColorEncoding(int red, int green, int blue) {
-        // TODO: provide rgb color encoding
-        return 0;
+        return Color.rgb(red, green, blue);
     }
 
     /**
@@ -92,8 +97,7 @@ public class MazePanel extends View {
      * @return integer RGB value
      */
     public int getColor() {
-        // TODO return the current color setting
-        return 0;
+        return paint.getColor();
     }
 
     /**
@@ -104,7 +108,7 @@ public class MazePanel extends View {
      * @param height
      */
     public void fillRect(int x, int y, int width, int height) {
-        // draw a filled rectangle on the canvas, requires decision on its color
+        canvas.drawRect(x, y, x + width, y + height, paint);
     }
 
     /**
@@ -115,8 +119,14 @@ public class MazePanel extends View {
      * @param nPoints
      */
     public void fillPolygon(int[] xPoints, int[] yPoints, int nPoints){
-        // translate the points into a path
-        // draw a path on the canvas
+        Path path = new Path();
+        path.reset();
+        path.moveTo(xPoints[0], yPoints[0]);
+        for(int i = 0; i < xPoints.length; i++){
+            path.lineTo(xPoints[i], yPoints[i]);
+        }
+        path.lineTo(xPoints[0], yPoints[0]);
+        canvas.drawPath(path, paint);
     }
 
     /**
@@ -127,7 +137,7 @@ public class MazePanel extends View {
      * @param y2
      */
     public void drawLine(int x1, int y1, int x2, int y2) {
-        // TODO: draw a line on the canvas
+        canvas.drawLine(x1, y1, x2, y2, paint);
     }
 
     /**
@@ -138,7 +148,8 @@ public class MazePanel extends View {
      * @param height
      */
     public void fillOval(int x, int y, int width, int height) {
-        // TODO: draw an oval on the canvas
+        RectF rectf = new RectF(x - width, y - height, x + width, y + height);
+        canvas.drawOval(rectf, paint);
     }
 
 }

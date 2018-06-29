@@ -2,8 +2,7 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
 //import java.awt.Graphics;
 
-import generation.CardinalDirection;
-import gui.Constants.StateGUI;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.CardinalDirection;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
 
@@ -216,8 +215,8 @@ public class StatePlaying extends DefaultState {
             System.out.println("Maze.notifierViewerRedraw: can't get graphics object to draw on, skipping redraw operation") ;
         }
         else {
-        	firstPersonView.redraw(g, StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
-            mapView.redraw(g, StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
+        	firstPersonView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
+            mapView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
         }   
 
         // update the screen with the buffer graphics
