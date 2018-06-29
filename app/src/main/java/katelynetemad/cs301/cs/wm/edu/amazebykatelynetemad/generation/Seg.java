@@ -1,12 +1,13 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 
-import java.awt.Color;
-import java.util.ArrayList;
+//import java.awt.Color;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import gui.MazeFileWriter;
+import java.util.ArrayList;
+
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.MazeFileWriter;
 
 /**
  * A segment is a continuous sequence of walls in the maze.

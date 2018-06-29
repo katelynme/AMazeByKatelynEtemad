@@ -1,9 +1,9 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-import generation.CardinalDirection;
-import generation.Cells;
-import generation.MazeConfiguration;
 import gui.Constants.UserInput;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.CardinalDirection;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
 
 /**
  * This class implements the Robot interface.

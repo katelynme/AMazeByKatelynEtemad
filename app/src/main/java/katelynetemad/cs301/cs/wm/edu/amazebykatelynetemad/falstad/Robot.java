@@ -1,6 +1,6 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-import generation.CardinalDirection;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.CardinalDirection;
 
 
 /**
@@ -61,7 +61,7 @@ public interface Robot {
 	 * Turn robot on the spot for amount of degrees. 
 	 * If robot runs out of energy, it stops, 
 	 * which can be checked by hasStopped() == true and by checking the battery level. 
-	 * @param direction to turn and relative to current forward direction. 
+	 * @param turn to turn and relative to current forward direction.
 	 */
 	void rotate(Turn turn);
 	/**
@@ -95,7 +95,6 @@ public interface Robot {
 	 * for the robot about the current position, the presence of walls, the reaching of an exit.
 	 * The controller is assumed to be in the playing state.
 	 * @param controller is the communication partner for robot
-	 * @precondition controller != null, controller is in playing state and has a maze
 	 */
 	void setMaze(Controller controller) ;
 	/**

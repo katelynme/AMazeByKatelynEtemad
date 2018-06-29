@@ -6,7 +6,7 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import gui.MazeFileWriter;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.MazeFileWriter;
 
 /**
  * BSPNodes are used to build a binary tree, where internal nodes keep track of lower and upper bounds of (x,y) coordinates.

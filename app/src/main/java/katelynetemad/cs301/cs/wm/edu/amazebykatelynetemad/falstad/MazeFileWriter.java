@@ -4,8 +4,8 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
 
-import generation.BSPNode;
-import generation.Cells;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.io.File;
 
@@ -18,8 +18,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPNode;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;
 
 /**
  * This class provides functionality to write a maze configuration to a file in an XML format.
@@ -74,8 +74,8 @@ public class MazeFileWriter {
 	 * @param doc
 	 */
 	static void storeMaze(int width, int height, int rooms,
-			int expected_partiters, BSPNode root, Cells cells, int[][] dists,
-			int startX, int startY, Document doc) {
+						  int expected_partiters, BSPNode root, Cells cells, int[][] dists,
+						  int startX, int startY, Document doc) {
 		Element mazeXML = doc.createElement("Maze");
 		doc.appendChild(mazeXML);
 		

@@ -3,12 +3,11 @@
  */
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-import gui.Constants.StateGUI;
-import generation.CardinalDirection;
-import generation.Cells;
-import generation.MazeConfiguration;
-import java.awt.Color;
-import java.awt.Graphics;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.CardinalDirection;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
+//import java.awt.Color;
+//import java.awt.Graphics;
 
 /**
  * This class encapsulates all functionality to draw a map of the overall maze, the set of visible walls, the solution.
@@ -37,7 +36,7 @@ public class MapDrawer {
 	 * the FirstPersonDrawer that writes content into it. The MapDrawer only
 	 * reads content to decide which lines to draw and in which color.
 	 */
-	Cells seencells ; 
+	Cells seencells ;
 
 	/**
 	 * Contains all necessary information about current maze, i.e.
@@ -97,11 +96,11 @@ public class MapDrawer {
 	}
 
 	
-	public void redraw(Graphics gc, StateGUI state, int px, int py,
-			int view_dx, int view_dy, int walk_step, int view_offset, 
-			RangeSet rset, int ang) {
+	public void redraw(Graphics gc, Constants.StateGUI state, int px, int py,
+					   int view_dx, int view_dy, int walk_step, int view_offset,
+					   RangeSet rset, int ang) {
 		//dbg("redraw") ;
-		if (state != StateGUI.STATE_PLAY)
+		if (state != Constants.StateGUI.STATE_PLAY)
 			return ;
 		if (null != controller2) {
 			if (controller2.isInMapMode()) {

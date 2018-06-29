@@ -3,17 +3,21 @@
  */
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-import gui.Constants.StateGUI;
-import generation.BSPBranch;
-import generation.BSPLeaf;
-import generation.BSPNode;
-import generation.Cells;
-import generation.Seg;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
+//import java.awt.Color;
+//import java.awt.Graphics;
+//import java.awt.Graphics2D;
+//import java.awt.Point;
+
+import android.graphics.Point;
+
 import java.util.ArrayList;
+
+import gui.Constants.StateGUI;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPBranch;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPLeaf;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPNode;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Seg;
 
 /**
  * This class encapsulates all functionality for drawing the current view 
@@ -109,8 +113,8 @@ public class FirstPersonDrawer {
 	 * @param walk_step, only used to get viewx and viewy
 	 * @param view_offset, only used to get viewx and viewy
 	 */
-	public void redraw(Graphics gc, StateGUI state, int px, int py, int view_dx, 
-			int view_dy, int walk_step, int view_offset, RangeSet rset, int ang) {
+	public void redraw(Graphics gc, Constants.StateGUI state, int px, int py, int view_dx,
+					   int view_dy, int walk_step, int view_offset, RangeSet rset, int ang) {
 		// if notified by model that state has changed
 		// Query model for parameters
 		//dbg("viewer.redraw called");

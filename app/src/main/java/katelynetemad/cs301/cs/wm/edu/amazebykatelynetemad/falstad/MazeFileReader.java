@@ -3,26 +3,27 @@
  */
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-import generation.BSPBranch;
-import generation.BSPLeaf;
-import generation.BSPNode;
-import generation.Cells;
-import generation.Distance;
-import generation.MazeConfiguration;
-import generation.MazeContainer;
-import generation.Seg;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
-import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPBranch;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPLeaf;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPNode;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Distance;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeContainer;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Seg;
+
+//import java.awt.Color;
 
 /**
  * This class provides functionality to read the content of a Maze object from a file. 
