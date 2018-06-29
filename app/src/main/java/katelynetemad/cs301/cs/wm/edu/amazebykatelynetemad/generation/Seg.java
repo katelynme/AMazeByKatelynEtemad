@@ -2,6 +2,8 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 
 //import java.awt.Color;
 
+import android.graphics.Color;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -60,7 +62,7 @@ public class Seg {
     /**
      * color of segment, only set by constructor and file reader.
      */
-    private Color col;
+    private int col;
     /**
      * partition flag.
      */
@@ -146,25 +148,25 @@ public class Seg {
         final int rgbValue = calculateRGBValue(d);
         switch (((d >> 3) ^ cc) % 6) {
         case 0:
-            setColor(new Color(rgbValue, RGB_DEF, RGB_DEF));
+            col = Color.rgb(rgbValue, 20, 20);
             break;
         case 1:
-            setColor(new Color(RGB_DEF, rgbValue, RGB_DEF));
+            col = Color.rgb(20, rgbValue, 20);
             break;
         case 2:
-            setColor(new Color(RGB_DEF, RGB_DEF, rgbValue));
+            col = Color.rgb(20, 20, rgbValue);
             break;
         case 3:
-            setColor(new Color(rgbValue, rgbValue, RGB_DEF));
+            col = Color.rgb(rgbValue, rgbValue, 20);
             break;
         case 4:
-            setColor(new Color(RGB_DEF, rgbValue, rgbValue));
+            col = Color.rgb(20, rgbValue, rgbValue);
             break;
         case 5:
-            setColor(new Color(rgbValue, RGB_DEF, rgbValue));
+            col = Color.rgb(rgbValue, 20, rgbValue);
             break;
         default:
-            setColor(new Color(RGB_DEF, RGB_DEF, RGB_DEF));
+            col = Color.rgb(20, 20, 20);
             break;
         }
     }
@@ -260,7 +262,7 @@ public class Seg {
         MazeFileWriter.appendChild(doc, mazeXML, "ySeg_" + number + "_" + i,
                 getStartPositionY());
         MazeFileWriter.appendChild(doc, mazeXML, "colSeg_" + number + "_" + i,
-                getColor().getRGB());
+                col);
     }
 
     /**
@@ -290,7 +292,7 @@ public class Seg {
             return false;
         }
         if ((dist != o.dist) || (partition != o.partition) || (seen != o.seen)
-                || (col.getRGB() != o.col.getRGB())) {
+                || (col != o.col)) {
             return false;
         }
         // all fields are equal, so both objects are equal
@@ -362,7 +364,7 @@ public class Seg {
     /**
      * @return the color
      */
-    public Color getColor() {
+    public int getColor() {
         return col;
     }
 
@@ -370,7 +372,7 @@ public class Seg {
      * @param color
      *            the color to set
      */
-    public void setColor(final Color color) {
+    public void setColor(final int color) {
         /*
          * for debugging: use random color settings such that all segments look
          * different

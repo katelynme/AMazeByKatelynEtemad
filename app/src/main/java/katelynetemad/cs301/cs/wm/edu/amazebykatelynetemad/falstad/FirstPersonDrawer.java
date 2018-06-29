@@ -8,8 +8,6 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 //import java.awt.Graphics2D;
 //import java.awt.Point;
 
-import android.graphics.Point;
-
 import java.util.ArrayList;
 
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.BSPBranch;
@@ -51,8 +49,8 @@ public class FirstPersonDrawer {
 	// used in bounding box
 	private int zscale = view_height/2;
 
-	private Graphics2D gc ; // the graphics object for the buffer image this class draws on
-	// note: updating the panel that is on screen with the buffer image 
+	private MazePanel mazePanel;
+	// note: updating the panel that is on screen with the buffer image
 	// is the responsibility of the StatePlaying class
 	
 	final int viewz = 50;  // constant from StatePlaying.java
@@ -101,7 +99,7 @@ public class FirstPersonDrawer {
 	
 	/**
 	 * Draws the first person view on the screen during the game
-	 * @param gc graphics handler for the buffer image that this class draws on
+	 * @param mazePanel graphics handler for the buffer image that this class draws on
 	 * @param state the current state of the GUI
 	 * @param px x coordinate of current position, only used to get viewx
 	 * @param py y coordinate of current position, only used to get viewy
@@ -112,7 +110,7 @@ public class FirstPersonDrawer {
 	 * @param walk_step, only used to get viewx and viewy
 	 * @param view_offset, only used to get viewx and viewy
 	 */
-	public void redraw(Graphics gc, Constants.StateGUI state, int px, int py, int view_dx,
+	public void redraw(MazePanel mazePanel, Constants.StateGUI state, int px, int py, int view_dx,
 					   int view_dy, int walk_step, int view_offset, RangeSet rset, int ang) {
 		// if notified by model that state has changed
 		// Query model for parameters
@@ -120,7 +118,7 @@ public class FirstPersonDrawer {
 		if (state != Constants.StateGUI.STATE_PLAY)
 			return ;
 		
-		this.gc = (Graphics2D) gc ;
+		this.mazePanel = mazePanel ;
 		this.rset = rset ;
 		this.view_dx = view_dx ;
 		this.view_dy = view_dy ;
@@ -131,9 +129,12 @@ public class FirstPersonDrawer {
 		viewy = (py*map_unit+map_unit/2) + viewd_unscale(view_dy*(step_size*walk_step-view_offset));
 		// update graphics
 		// draw background figure: black on bottom half, grey on top half
-		drawBackground(gc);
+		mazePanel.setColor("black");
+		mazePanel.fillRect(0, 0, view_width, view_height/2);
+		mazePanel.setColor("darkGray");
+		mazePanel.fillRect(0, view_height/2, view_width, view_height/2);
 		// set color to white and draw what ever can be seen from the current position
-		gc.setColor(Color.white);
+		mazePanel.setColor("white");
 		rset.set(0, view_width-1); // reset set of ranges to set with single new element (0,width-1)
 		// debug: reset counters
 		traverse_node_ct = traverse_ssector_ct =
@@ -148,13 +149,13 @@ public class FirstPersonDrawer {
 	/**
 	 * Draws a black and a grey rectangle to provide a background.
 	 * Note that this also erases previous drawings of maze or map.
-	 * @param gc
+	 * @param mazePanel
 	 */
-	private void drawBackground(Graphics gc) {
-		gc.setColor(Color.black);
-		gc.fillRect(0, 0, view_width, view_height/2);
-		gc.setColor(Color.darkGray);
-		gc.fillRect(0, view_height/2, view_width, view_height/2);
+	private void drawBackground(MazePanel mazePanel) {
+		mazePanel.setColor("black");
+		mazePanel.fillRect(0, 0, view_width, view_height/2);
+		mazePanel.setColor("darkGray");
+		mazePanel.fillRect(0, view_height/2, view_width, view_height/2);
 	}
 	/**
 	 * Recursive method to explore tree of BSP nodes and draw all segments in leaf nodes 
@@ -266,7 +267,10 @@ public class FirstPersonDrawer {
 			x2 = xj;
 		}
 		// constraint: x1 <= x2
-		Point p = new Point(x1, x2);
+		//Point p = new Point(x1, x2);
+		int[] p = new int[2];
+		p[0] = x1;
+		p[1] = x2;
 		return (rset.intersect(p));
 	}
 
@@ -346,7 +350,7 @@ public class FirstPersonDrawer {
 			return;
 		int x1i = x1;
 		int xd = x2-x1;
-		gc.setColor(seg.getColor());
+		mazePanel.setColor(seg.getColor());
 		boolean drawn = false;
 		drawrect_late_ct++; // debug, counter
 		// loop variable is x1i, upper limit x2 is fixed
@@ -354,11 +358,13 @@ public class FirstPersonDrawer {
 			// check if there is an intersection, 
 			// if there is none proceed exit the loop, 
 			// if there is one, get it as (x1i,x2i)
-			Point p = new Point(x1i, x2);
+			int[] p = new int[2];
+			p[0] = x1i;
+			p[1] = x2;
 			if (!rset.intersect(p))
 				break;
-			x1i = p.x;
-			int x2i = p.y;
+			x1i = p[0];
+			int x2i = p[1];
 			// let's work on the intersection (x1i,x2i)
 			int[] xps = { x1i, x1i, x2i+1, x2i+1 };
 			int[] yps = { y11+(x1i-x1)*(y21-y11)/xd,
@@ -368,7 +374,7 @@ public class FirstPersonDrawer {
 			// debug
 			//System.out.println("polygon-x: " + xps[0] + ", " + xps[1] + ", " + xps[2] + ", " + xps[3]) ;
 			//System.out.println("polygon-y: " + yps[0] + ", " + yps[1] + ", " + yps[2] + ", " + yps[3]) ;
-			gc.fillPolygon(xps, yps, 4);
+			mazePanel.fillPolygon(xps, yps, 4);
 			// for debugging purposes, code will draw a red line around polygon
 			// this makes individual segments visible
 			/*
@@ -421,7 +427,6 @@ public class FirstPersonDrawer {
 	    }
 	    /**
 	     * Helper method for bbox_visible and drawrect
-	     * @param rp may be modified 
 	     * @return
 	     */
         public boolean clip3d() {
