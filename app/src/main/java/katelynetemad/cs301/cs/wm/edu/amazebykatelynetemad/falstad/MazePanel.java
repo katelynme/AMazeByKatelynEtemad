@@ -37,6 +37,10 @@ public class MazePanel extends View {
      */
     public MazePanel(Context context, AttributeSet app) {
         super(context, app);
+        bitmap = Bitmap.createBitmap(Constants.VIEW_WIDTH, Constants.VIEW_HEIGHT, Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap);
+        paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
     }
     /**
      * Draws given canvas.
@@ -71,7 +75,36 @@ public class MazePanel extends View {
      * @param c string
      */
     public void setColor(String c) {
-        invalidate();
+        if("black".equalsIgnoreCase(c)){
+            paint.setColor(Color.BLACK);
+        }
+        else if("darkGray".equalsIgnoreCase(c)){
+            paint.setColor(Color.DKGRAY);
+        }
+        else if("gray".equalsIgnoreCase(c)){
+            paint.setColor(Color.GRAY);
+        }
+        else if("lightGray".equalsIgnoreCase(c)){
+            paint.setColor(Color.LTGRAY);
+        }
+        else if("red".equalsIgnoreCase(c)){
+            paint.setColor(Color.RED);
+        }
+        else if("green".equalsIgnoreCase(c)){
+            paint.setColor(Color.GREEN);
+        }
+        else if("cyan".equalsIgnoreCase(c)){
+            paint.setColor(Color.CYAN);
+        }
+        else if("blue".equalsIgnoreCase(c)){
+            paint.setColor(Color.BLUE);
+        }
+        else if("yellow".equalsIgnoreCase(c)){
+            paint.setColor(Color.YELLOW);
+        }
+        else {
+            paint.setColor(Color.WHITE);
+        }
     }
 
     /**

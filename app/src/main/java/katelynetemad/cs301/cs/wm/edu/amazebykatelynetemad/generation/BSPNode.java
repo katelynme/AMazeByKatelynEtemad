@@ -6,7 +6,9 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import gui.MazeFileWriter;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.MazeFileWriter;
+
+//import gui.MazeFileWriter;
 
 /**
  * BSPNodes are used to build a binary tree, where internal nodes keep track of lower and upper bounds of (x,y) coordinates.
@@ -28,7 +30,6 @@ public class BSPNode {
 
 	/**
 	 * Store the content of a BSPNode including data of branches and leaves as special cases.
-	 * @param root is the node considered
 	 * @param doc document to add data to
 	 * @param mazeXML element to add data to
 	 * @param number is an index number for this node in the XML format

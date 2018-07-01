@@ -34,15 +34,17 @@ public class AMazeActivity extends AppCompatActivity {
 
         setSeekBar();
 
+        //Adding the builders to an arraylist for the pull down options
         builders = new ArrayList<>();
+        builders.add("DFS");
         builders.add("Prim");
         builders.add("Kruskal");
-        builders.add("DFS");
 
+        //Adding the drivers to an arraylist for the pull down options
         drivers = new ArrayList<>();
+        drivers.add("Manual");
         drivers.add("WallFollower");
         drivers.add("Wizard");
-        drivers.add("Manual");
 
         setBuilderSpinner();
         setDriverSpinner();
@@ -139,6 +141,11 @@ public class AMazeActivity extends AppCompatActivity {
     public void onExploreClick(View view){
         Intent i = new Intent(this, GeneratingActivity.class);
         Log.v(TAG, "Starting the generating activity through explore");
+        i.putExtra("Driver", driver);
+        i.putExtra("Builder", builder);
+        i.putExtra("Level", level);
+        Log.v(TAG, "Starting activity with driver: " + driver + ", builder: " + builder
+                + ", level: " + level);
         startActivity(i);
     }
 

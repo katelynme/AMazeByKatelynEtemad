@@ -1,7 +1,6 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 
-import generation.Factory;
-import generation.Order;
+
 
 
 /**

@@ -1,7 +1,9 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 
-import gui.Constants;
+//import gui.Constants;
 
+
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.Constants;
 
 /**
  * This class has the responsibility to create a maze of given dimensions (width, height) 

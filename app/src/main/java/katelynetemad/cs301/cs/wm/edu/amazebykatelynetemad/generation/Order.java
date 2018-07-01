@@ -36,7 +36,7 @@ public interface Order {
 	 * Delivers the produced maze. 
 	 * This method is called by the factory to provide the 
 	 * resulting maze as a MazeConfiguration.
-	 * @param the maze
+	 * @param mazeConfig
 	 */
 	void deliver(MazeConfiguration mazeConfig) ;
 	/**
@@ -45,7 +45,7 @@ public interface Order {
 	 * during production, there is no guarantee on particular values.
 	 * Percentage will be delivered in monotonously increasing order,
 	 * the last call is with a value of 100 after delivery of product.
-	 * @param current percentage of job completion
+	 * @param percentage of job completion
 	 */
 	void updateProgress(int percentage) ;
 }

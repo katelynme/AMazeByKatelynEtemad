@@ -1,8 +1,11 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 
-import gui.Constants;
+//import gui.Constants;
+
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.Constants;
 
 /**
  * This class has the responsibility to obtain the tree of BSP nodes for a given maze.
@@ -205,7 +208,7 @@ public class BSPBuilder {
 	    //System.out.println("set Partition bit in BSP builder with scaled width and height values");
 		for (Seg se : sl) {
 			//se.updatePartitionIfBorderCase(width, height);
-		    se.updatePartitionIfBorderCase(width*Constants.MAP_UNIT, height*Constants.MAP_UNIT);
+		    se.updatePartitionIfBorderCase(width* Constants.MAP_UNIT, height*Constants.MAP_UNIT);
 		}
 	}
 

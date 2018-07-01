@@ -1,10 +1,9 @@
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.gui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.R;
 
@@ -18,14 +17,31 @@ public class PlayManuallyActivity extends AppCompatActivity {
     }
 
     /**
-     * Temporary button, if the shortcut button is clicked we are taken to the finishing
-     * page (FinishActivity). This is in place of the graphics that will be implemented
-     * later.
-     * @param view
+     * Takes us to the finish activity once the user has successfully exited the maze
      */
-    public void onShortcutClick(View view){
+    public void onFinish(){
         Intent intent = new Intent(this, FinishActivity.class);
         Log.v(TAG, "Starting finish activity");
         startActivity(intent);
+    }
+
+    /**
+     * Takes us back to the title screen
+     */
+    public void switchToTitle(){
+        Intent intent = new Intent(this, AMazeActivity.class);
+        Log.v(TAG, "Returning to the title screen");
+        startActivity(intent);
+    }
+
+    /**
+     * Code for when the back button is pressed, the app should return to the
+     * main screen (AMazeActivity).
+     */
+    public void onBackPressed(){
+        Log.v(TAG, "Back button pressed, returning to AMazeActivity");
+        Intent intent = new Intent(this, AMazeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -24,7 +24,7 @@ public interface Factory {
 	 * production is performed in a background thread and 
 	 * delivery of the ordered MazeConfiguration takes place
 	 * by calling the deliver method of the given order object.
-	 * @param the order
+	 * @param order
 	 * @return true if order is accepted, false if refused
 	 */
 	public boolean order(Order order) ;

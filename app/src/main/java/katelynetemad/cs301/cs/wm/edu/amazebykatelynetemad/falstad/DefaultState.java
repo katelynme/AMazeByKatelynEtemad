@@ -3,9 +3,8 @@
  */
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
-import gui.Constants.UserInput;
-import generation.MazeConfiguration;
-import generation.Order.Builder;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Order;
 
 /**
  * This is a default implementation of the State interface
@@ -19,7 +18,7 @@ import generation.Order.Builder;
 public class DefaultState implements State {
 
     @Override
-    public void start(Controller controller, MazePanel panel) {
+    public void start(MazePanel panel) {
         throw new RuntimeException("DefaultState:using unimplemented method");    
     }
 
@@ -48,12 +47,12 @@ public class DefaultState implements State {
     }
 
     @Override
-    public boolean keyDown(UserInput key, int value) {
+    public boolean keyDown(Constants.UserInput key, int value) {
         throw new RuntimeException("DefaultState:using unimplemented method");
     }
 
     @Override
-    public void setBuilder(Builder dfs) {
+    public void setBuilder(Order.Builder dfs) {
         throw new RuntimeException("DefaultState:using unimplemented method");
     }
 }

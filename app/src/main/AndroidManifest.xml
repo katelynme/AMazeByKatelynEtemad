@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".gui.GeneratingActivity" />
         <activity android:name=".gui.PlayManuallyActivity" />
-        <activity android:name=".gui.PlayAnimationActivity" />
         <activity android:name=".gui.FinishActivity"></activity>
     </application>
 

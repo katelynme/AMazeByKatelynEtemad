@@ -3,12 +3,14 @@
  */
 package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation;
 
-import gui.MazeFileWriter;
-
-import java.util.ArrayList;
+//import gui.MazeFileWriter;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import java.util.ArrayList;
+
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.MazeFileWriter;
 
 /**
  * A leaf node for a tree of BSPNodes. It carries a list of segments. 
