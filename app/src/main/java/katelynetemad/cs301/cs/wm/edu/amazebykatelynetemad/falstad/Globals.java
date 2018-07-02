@@ -4,4 +4,5 @@ import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfigu
 
 public class Globals {
     public static MazeConfiguration mazeConfig;
+    public static boolean outsideMaze;
 }

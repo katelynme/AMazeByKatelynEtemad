@@ -44,6 +44,7 @@ public class GeneratingActivity extends AppCompatActivity implements Order {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setProgress(0);
         mazeConfig = Globals.mazeConfig;
+        Log.v(TAG, "Progress bar and maze configuration set");
 
         //retrieving the variables passed from the previous activity
         driver = (String)getIntent().getStringExtra("Driver");
@@ -105,12 +106,15 @@ public class GeneratingActivity extends AppCompatActivity implements Order {
     @Override
     public Builder getBuilder() {
         if(builder.equalsIgnoreCase("Prim")){
+            Log.v(TAG, "Builder set to Prim");
             return Builder.Prim;
         }
         else if(builder.equalsIgnoreCase("Kruskal")){
+            Log.v(TAG, "Builder set to Kruskal");
             return Builder.Kruskal;
         }
         else{
+            Log.v(TAG, "Builder set to DFS");
             return Builder.DFS;
         }
     }

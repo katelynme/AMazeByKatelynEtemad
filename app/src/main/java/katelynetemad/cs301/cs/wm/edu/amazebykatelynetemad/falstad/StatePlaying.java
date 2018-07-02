@@ -2,6 +2,8 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad;
 
 //import java.awt.Graphics;
 
+import android.util.Log;
+
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.CardinalDirection;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.Cells;
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
@@ -30,6 +32,7 @@ import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.gui.PlayManuallyActivi
  * Refactored by Peter Kemper
  */
 public class StatePlaying extends DefaultState {
+    private static final String TAG = "StatePlaying";
 	FirstPersonDrawer firstPersonView;
 	MapDrawer mapView;
     MazePanel panel;
@@ -68,6 +71,7 @@ public class StatePlaying extends DefaultState {
     public StatePlaying() {
         rset = new RangeSet();
         started = false;
+        Globals.outsideMaze = false;
     }
     @Override
     public void setMazeConfiguration(MazeConfiguration config) {
@@ -153,7 +157,9 @@ public class StatePlaying extends DefaultState {
         case Up: // move forward
             walk(1);
             if (isOutside(px,py)) {
-                playManuallyActivity.onFinish();
+                Log.v(TAG, "Reached the exit of the maze");
+                Globals.outsideMaze = true;
+                //playManuallyActivity.onFinish();
                 //control.switchFromPlayingToWinning(0);
             }
             break;
@@ -166,12 +172,14 @@ public class StatePlaying extends DefaultState {
         case Down: // move backward
             walk(-1);
             if (isOutside(px,py)) {
-                playManuallyActivity.onFinish();
+                Log.v(TAG, "Reached the exit of the maze");
+                Globals.outsideMaze = true;
+                //playManuallyActivity.onFinish();
                 //control.switchFromPlayingToWinning(0);
             }
             break;
         case ReturnToTitle: // escape to title screen
-            playManuallyActivity.switchToTitle();
+            //playManuallyActivity.switchToTitle();
             //control.switchToTitle();
             break;
         case Jump: // make a step forward even through a wall

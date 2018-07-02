@@ -23,6 +23,7 @@ public class PlayManuallyActivity extends AppCompatActivity {
     Switch map, solution, walls;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.v(TAG, "PlayManuallyActivity has started");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_manually);
 
@@ -30,10 +31,12 @@ public class PlayManuallyActivity extends AppCompatActivity {
         panel = findViewById(R.id.mazePanel);
         statePlaying.setMazeConfiguration(mazeConfig);
         statePlaying.start(panel);
+        Log.v(TAG, "Maze configuration and panel set");
 
         map = findViewById(R.id.mapSwitch);
         map.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.v(TAG, "Toggling the full map");
                 statePlaying.keyDown(Constants.UserInput.ToggleFullMap, 0);
             }
         });
@@ -41,6 +44,7 @@ public class PlayManuallyActivity extends AppCompatActivity {
         solution = findViewById(R.id.solutionSwitch);
         solution.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.v(TAG, "Toggling the solution display");
                 statePlaying.keyDown(Constants.UserInput.ToggleSolution, 0);
             }
         });
@@ -48,6 +52,7 @@ public class PlayManuallyActivity extends AppCompatActivity {
         walls = findViewById(R.id.wallSwitch);
         walls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.v(TAG, "Toggling the local map/walls");
                 statePlaying.keyDown(Constants.UserInput.ToggleLocalMap, 0);
             }
         });
@@ -60,6 +65,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
     public void onUpClick(View v){
         Log.v(TAG, "Up button clicked");
         statePlaying.keyDown(Constants.UserInput.Up, 0);
+        if(Globals.outsideMaze == true){
+            onFinish();
+        }
     }
 
     /**
@@ -69,6 +77,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
     public void onDownClick(View v){
         Log.v(TAG, "Down button clicked");
         statePlaying.keyDown(Constants.UserInput.Down, 0);
+        if(Globals.outsideMaze == true){
+            onFinish();
+        }
     }
 
     /**
