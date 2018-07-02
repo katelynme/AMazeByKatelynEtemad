@@ -3,7 +3,6 @@ package katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.gui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ProgressBar;
@@ -31,12 +30,6 @@ public class GeneratingActivity extends AppCompatActivity implements Order {
 
     private Thread background;
 
-    Handler progressHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            progressBar.incrementProgressBy(30);
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,22 +46,30 @@ public class GeneratingActivity extends AppCompatActivity implements Order {
         Log.v(TAG, "Passed in driver: " + driver + ", builder: " + builder + ", level: " + level);
 
         //create a background thread to take care of the progressbar's status
-        background = new Thread (new Runnable() {
+        new Thread(new Runnable() {
+            @Override
             public void run() {
-                while (progressBar.getProgress() < 100) {
-
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    progressHandler.sendMessage(progressHandler.obtainMessage());
+                while(progressBarStatus < 100){
+                    progressBarStatus++;
+                    android.os.SystemClock.sleep(50);
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(progressBarStatus);
+                        }
+                    });
                 }
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        startBuild();
+                    }
+                });
             }
-        });
-        background.start();
+        }).start();
+    }
 
+    public void startBuild(){
         mazeBuilder = this.getBuilder();
         mazeFactory = new MazeFactory(true);
         StubOrder stubOrder = new StubOrder(level, mazeBuilder, true);
