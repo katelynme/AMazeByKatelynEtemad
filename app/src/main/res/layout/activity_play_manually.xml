@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.PlayManuallyActivity">
+    tools:context=".gui.PlayManuallyActivity"
+    android:background="@drawable/play_background">
 
     <katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.MazePanel
         android:id="@+id/mazePanel"

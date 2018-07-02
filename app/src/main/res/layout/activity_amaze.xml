@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.AMazeActivity">
+    tools:context=".gui.AMazeActivity"
+    android:background="@drawable/main_background">
 
     <TextView
         android:id="@+id/textView2"
@@ -157,5 +158,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.941" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@android:color/holo_orange_light"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="49dp" />
 
 </android.support.constraint.ConstraintLayout>
