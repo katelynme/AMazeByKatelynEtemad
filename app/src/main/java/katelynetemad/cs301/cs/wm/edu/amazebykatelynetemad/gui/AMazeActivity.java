@@ -34,13 +34,13 @@ public class AMazeActivity extends AppCompatActivity {
 
         setSeekBar();
 
-        //Adding the builders to an arraylist for the pull down options
+        //Adding the builders to an array list for the pull down options
         builders = new ArrayList<>();
         builders.add("DFS");
         builders.add("Prim");
         builders.add("Kruskal");
 
-        //Adding the drivers to an arraylist for the pull down options
+        //Adding the drivers to an array list for the pull down options
         drivers = new ArrayList<>();
         drivers.add("Manual");
         drivers.add("WallFollower");
