@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".gui.PlayManuallyActivity">
 
+    <katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.MazePanel
+        android:id="@+id/mazePanel"
+        android:layout_width="261dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.355" />
+
     <Switch
         android:id="@+id/mapSwitch"
         android:layout_width="94dp"

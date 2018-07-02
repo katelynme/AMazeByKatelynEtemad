@@ -6,14 +6,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.R;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.Globals;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.MazePanel;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.falstad.StatePlaying;
+import katelynetemad.cs301.cs.wm.edu.amazebykatelynetemad.generation.MazeConfiguration;
 
 public class PlayManuallyActivity extends AppCompatActivity {
     private static final String TAG = "PlayManuallyActivity";
-
+    MazePanel panel;
+    MazeConfiguration mazeConfig;
+    StatePlaying statePlaying = new StatePlaying();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_manually);
+
+        mazeConfig = Globals.mazeConfig;
+        panel = findViewById(R.id.mazePanel);
+        statePlaying.setMazeConfiguration(mazeConfig);
+        statePlaying.start(panel);
     }
 
     /**

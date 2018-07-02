@@ -120,6 +120,11 @@ public class GeneratingActivity extends AppCompatActivity implements Order {
         return false;
     }
 
+    /**
+     * This method sets the global variable for the maze configuration for access between
+     * activities, and starts the next activity (PlayManuallyActivity)
+     * @param mazeConfig
+     */
     @Override
     public void deliver(MazeConfiguration mazeConfig) {
         Globals.mazeConfig = mazeConfig;
@@ -129,6 +134,11 @@ public class GeneratingActivity extends AppCompatActivity implements Order {
         finish();
     }
 
+    /**
+     * We update the progressBarStatus percentage with the parameter percentage and
+     * appropriately set the progressBar to this.
+     * @param percentage of job completion
+     */
     @Override
     public void updateProgress(int percentage) {
         Log.v(TAG, "UpdateProgress called, percentage: " + percentage);
